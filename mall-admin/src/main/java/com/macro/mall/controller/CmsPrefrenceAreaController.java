@@ -11,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 商品优选管理Controller
@@ -30,5 +35,23 @@ public class CmsPrefrenceAreaController {
     public CommonResult<List<CmsPrefrenceArea>> listAll() {
         List<CmsPrefrenceArea> prefrenceAreaList = prefrenceAreaService.listAll();
         return CommonResult.success(prefrenceAreaList);
+    }
+
+    public static void main(String[] args) {
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String str = "2020-12-13 09:50:50";
+        try {
+            String s = sd.format(new Date());
+            System.out.println(s);
+            Date d = sd.parse(s);
+            System.out.println();
+            //System.out.println(sd.parse(s));
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+
+
+
     }
 }
